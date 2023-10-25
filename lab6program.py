@@ -17,7 +17,19 @@ def encode(password):
 
 def decode(encoded_pass):
     # write decoding function here
-    pass
+    decoded_password = ""
+    # for every character in the encoded password
+    for char in encoded_pass:
+        # convert it into integer
+        current_digit = int(char)
+        # if it is less than 3 and therefore less than 0 after subtracting 3
+        if current_digit < 3:
+            current_digit = (current_digit - 3) + 10
+        else:
+            current_digit -= 3
+        # add it into the decoded password string
+        decoded_password += str(current_digit)
+    return decoded_password
 
 def main():
     program_running = True
